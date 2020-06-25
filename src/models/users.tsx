@@ -1,7 +1,7 @@
 import { Effect, Reducer, history, formatMessage } from 'umi';
 import { getStateFromStore, getPageQuery } from '@/utils/utils';
 import store from 'store';
-import { login, getMe } from '@/services/users';
+import { signIn, getMe, seed_user } from '@/services/users';
 import { notification } from 'antd';
 import { stringify } from 'querystring';
 
@@ -13,7 +13,7 @@ export interface LoginParams {
 
 export interface UserItem {
   id: number,
-  fullName: string;
+  name: string;
   password: string;
   username: string;
   email: string;
@@ -52,11 +52,11 @@ const UserModel: UserModelType = {
   },
   effects: {
     *login({ payload },{ call, put }) {
-      const { success, ...result  } = yield call(login, payload);
+      const { success, ...result  } = yield call(signIn, payload);
       if(success) {
         yield put({
           type: 'setAccessToken',
-          payload: result.accessToken,
+          payload: result.acccessToken,
         });
 
         notification.success({

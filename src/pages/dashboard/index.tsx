@@ -7,7 +7,7 @@ const HomePage = props => {
   return (
     <PageHeaderWrapper>
       <Card>
-        <h1> Coming soon </h1>
+        <h1> Coming soon !</h1>
       </Card>
     </PageHeaderWrapper>
   );

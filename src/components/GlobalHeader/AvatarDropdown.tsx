@@ -68,7 +68,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = props => {
           alt="avatar"
         />
         <span className={styles.name}>
-          {currentUser.fullName || formatMessage({ id: 'user.info.anonymous' })}
+          {currentUser.name || formatMessage({ id: 'user.info.anonymous' })}
         </span>
       </span>
     </HeaderDropdown>
