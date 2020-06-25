@@ -1,8 +1,10 @@
 import { fetch, fetchAuth } from '@/utils/request';
 
 const routes = {
- login: 'v2/auth/token',
- getMe: 'v2/auth/profile'
+ getMe: 'me',
+ signUp:'signup',
+ signIn:'signin',
+ seedUser: 'seed_user'
 }
 
 export interface LoginParamsType {
@@ -12,17 +14,38 @@ export interface LoginParamsType {
   captcha: string;
 }
 
-export function login(data){
+export function getMe(){
+  return fetchAuth({
+    url: routes.getMe,
+    method:'POST'
+  })
+}
+
+export function signIn(data){
   return fetch({
-    url: routes.login,
+    url: routes.signIn,
     method:'POST',
     data
   })
 }
 
-export function getMe(){
-  return fetchAuth({
-    url: routes.getMe,
-    method:'GET'
+export function signUp(data){
+
+  const newData = { ...data }
+
+  newData.address = "";
+  newData.role = 'CUSTOMER';
+
+  return fetch({
+    url: routes.signUp,
+    method:'POST',
+    data: newData
+  })
+}
+
+export function seed_user(){
+  return fetch({
+    url:routes.seedUser,
+    method:'POST'
   })
 }

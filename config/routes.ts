@@ -4,15 +4,15 @@ export const routes: IRoute[] = [
   {
     exact: true,
     path: '/login',
-    component: '@/pages/users/login',
-    wrappers: ['@/layouts/UserLayout'],
-  },
-  {
-    exact: true,
-    path: '/customer',
     component: '@/pages/customers/login',
     wrappers: ['@/layouts/UserLayout'],
   },
+  // {
+  //   exact: true,
+  //   path: '/customer',
+  //   component: '@/pages/customers/login',
+  //   wrappers: ['@/layouts/UserLayout'],
+  // },
   {
     path: '/',
     component: '@/layouts/BasicLayout',

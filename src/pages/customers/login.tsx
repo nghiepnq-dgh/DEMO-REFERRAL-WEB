@@ -27,7 +27,7 @@ const Login: React.FC<LoginProps> = props => {
   const clsString = classNames(styles.submit);
 
   const handleFinish = (values: Store) => {
-    dispatch({ type: 'user/login', payload: { ...values, grantType:'client_customer' } });
+    dispatch({ type: 'user/login', payload: { ...values } });
   };
 
   const onCancel = () => {
@@ -61,7 +61,7 @@ const Login: React.FC<LoginProps> = props => {
                 initialValues={{ remember: true }}
               >
                 <FormItem
-                  name="userid"
+                  name="email"
                   style={{ marginBottom: 0 }}
                   rules={[
                     {
