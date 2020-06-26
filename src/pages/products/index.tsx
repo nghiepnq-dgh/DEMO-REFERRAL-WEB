@@ -17,6 +17,7 @@ const Product = props => {
   };
 
   const onFinish = async (values) => {
+    console.log("DEBUG_CODE: onFinish -> values", values);
     if(values){
       const { success, ...data } = await payment(values);
       if(success){
@@ -48,7 +49,7 @@ const Product = props => {
               </FormItem>
             </Col>
             <Col span={13}>
-              <FormItem>
+              <FormItem name='price'>
                 <Input style={{ width: 240, marginRight: 10 }} suffix={<Tag color="green">VND</Tag> } name="amount" />
               </FormItem>
               <FormItem>

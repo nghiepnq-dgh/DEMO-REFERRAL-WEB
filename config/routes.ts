@@ -36,14 +36,12 @@ export const routes: IRoute[] = [
         name: 'product',
         component: '@/pages/products/index',
         icon: 'ShoppingOutlined',
-        access:'readProduct'
       },
       {
         path: '/customers',
         exact: false,
         name: 'customers',
         icon: 'UserOutlined',
-        access:'readCustomer',
         routes: [
           {
             exact: true,

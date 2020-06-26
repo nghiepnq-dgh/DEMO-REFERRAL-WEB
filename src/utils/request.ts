@@ -4,7 +4,7 @@ import { history } from 'umi';
 import store from 'store';
 import { handleErrorUtil } from './function.utils';
 
-const _apiPrefix = process.env.API_URL || 'http://localhost:3200/auth';
+const _apiPrefix = process.env.API_URL || 'http://localhost:3200';
 
 interface FetchOptions extends RequestOptionsInit {
   url: string;
