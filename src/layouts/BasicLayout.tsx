@@ -5,7 +5,7 @@ import ProLayout, {
   Settings,
   BasicLayoutProps as ProLayoutProps,
 } from '@ant-design/pro-layout';
-import { Link, connect, Dispatch, useIntl,  } from 'umi';
+import { Link, connect, Dispatch, useIntl, useAccess  } from 'umi';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { ConnectState } from '@/models/connect';
 import styles from './BasicLayout.less';
@@ -16,7 +16,7 @@ export interface BasicLayoutProps extends ProLayoutProps {
   };
   collapsed: boolean;
   settings: Settings;
-  // route: ProLayoutProps['route'];
+  route: ProLayoutProps['route'];
   dispatch: Dispatch;
 }
 
@@ -27,7 +27,7 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 };
 
 interface MenuCustomItem extends MenuDataItem {
-  // access: string | string[];
+  access: string | string[];
   children: MenuCustomItem[];
 }
 
@@ -47,7 +47,7 @@ const customFooter = (
 
 const BasicLayout: React.FC<BasicLayoutProps> = props => {
   const { dispatch, children, settings, collapsed } = props;
-  // const access = useAccess();
+  const access = useAccess();
   const { formatMessage } = useIntl();
   const menuDataRender = (menuList: MenuCustomItem[]) =>
     menuList

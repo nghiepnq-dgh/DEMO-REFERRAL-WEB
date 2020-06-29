@@ -35,7 +35,8 @@ export const routes: IRoute[] = [
         exact: true,
         name: 'product',
         component: '@/pages/products/index',
-        icon: 'ShoppingOutlined',
+        icon: 'ShopOutlined',
+        access:'readProduct'
       },
       {
         path: '/customers',
