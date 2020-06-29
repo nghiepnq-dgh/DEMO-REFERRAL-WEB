@@ -38,24 +38,24 @@ export const routes: IRoute[] = [
         icon: 'ShopOutlined',
         access:'readProduct'
       },
-      {
-        path: '/customers',
-        exact: false,
-        name: 'customers',
-        icon: 'UserOutlined',
-        routes: [
-          {
-            exact: true,
-            component: '@/pages/customers/index',
-            path: '/customers',
-          },
-          {
-            exact: true,
-            component: '@/pages/customers/[id]',
-            path: '/customers/:id',
-          },
-        ],
-      }
+      // {
+      //   path: '/customers',
+      //   exact: false,
+      //   name: 'customers',
+      //   icon: 'UserOutlined',
+      //   routes: [
+      //     {
+      //       exact: true,
+      //       component: '@/pages/customers/index',
+      //       path: '/customers',
+      //     },
+      //     {
+      //       exact: true,
+      //       component: '@/pages/customers/[id]',
+      //       path: '/customers/:id',
+      //     },
+      //   ],
+      // }
     ],
   },
 ];
