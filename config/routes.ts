@@ -43,7 +43,6 @@ export const routes: IRoute[] = [
         exact: false,
         name: 'customers',
         icon: 'UserOutlined',
-        access:'readCustomer',
         routes: [
           {
             exact: true,

@@ -1,10 +1,10 @@
 import { fetch, fetchAuth } from '@/utils/request';
 
 const routes = {
- getMe: 'me',
- signUp:'signup',
- signIn:'signin',
- seedUser: 'seed_user'
+ getMe: 'auth/me',
+ signUp:'auth/signup',
+ signIn:'auth/signin',
+ seedUser: 'auth/seed_user'
 }
 
 export interface LoginParamsType {
