@@ -1,10 +1,11 @@
 import { fetch, fetchAuth } from '@/utils/request';
 
 const routes = {
- getMe: 'me',
- signUp:'signup',
- signIn:'signin',
- seedUser: 'seed_user'
+ getMe: 'auth/me',
+ signUp:'auth/signup',
+ signIn:'auth/signin',
+ seedUser: 'auth/seed_user',
+ ssoCustomer: 'auth/login-to-referral',
 }
 
 export interface LoginParamsType {
@@ -47,5 +48,14 @@ export function seed_user(){
   return fetch({
     url:routes.seedUser,
     method:'POST'
+  })
+}
+
+
+export function ssoCustomer(customerId){
+  return fetchAuth({
+    url:routes.ssoCustomer,
+    method:'POST',
+    data: {customerId}
   })
 }

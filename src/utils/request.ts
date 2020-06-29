@@ -4,7 +4,7 @@ import { history } from 'umi';
 import store from 'store';
 import { handleErrorUtil } from './function.utils';
 
-const _apiPrefix = process.env.API_URL || 'http://localhost:3200/auth';
+const _apiPrefix = process.env.API_URL || 'http://localhost:3200';
 
 interface FetchOptions extends RequestOptionsInit {
   url: string;
@@ -83,10 +83,6 @@ export const fetchAuth = async ({
 }: FetchOptions) => {
   const accessToken = store.get('accessToken');
   if (!accessToken) {
-    // notification.error({
-    //   message: 'Xảy ra lỗi, 401',
-    //   description: 'Bạn cần đăng nhập',
-    // });
     history.replace(`/login`);
     return { success: false };
   }
@@ -95,7 +91,6 @@ export const fetchAuth = async ({
     {
       method: 'GET',
       headers: {
-        // 'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
         ...headers,
       },
@@ -109,9 +104,4 @@ export const fetchAuth = async ({
     handleErrorUtil(error, message);
     return { success: false, ...response };
   }
-  // if (response) {
-  //   return { success: true, ...response };
-  // } else {
-  //   return { success: false };
-  // }
 };

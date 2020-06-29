@@ -9,6 +9,7 @@ const routes = {
   getDetailCustomer: id => `v2/customer/${id}`,
   getListReferralOfCustomer: id => `v2/customer/${id}/referral`,
   getListRewardOfCustomer: id => `v2/customer/${id}/reward`,
+  
 };
 
 export function getListCustomers(params) {
