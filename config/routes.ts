@@ -39,6 +39,11 @@ export const routes: IRoute[] = [
         access:'readProduct'
       },
       {
+        path: '/account/profile',
+        exact: true,
+        component: '@/pages/account/index',
+      },
+      {
         path: '/customers',
         exact: false,
         name: 'customers',
