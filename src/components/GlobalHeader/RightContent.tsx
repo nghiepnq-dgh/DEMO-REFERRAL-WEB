@@ -9,7 +9,6 @@ import { ssoCustomer } from '@/services/users';
 export type SiderTheme = 'light' | 'dark';
 import store from 'store';
 import { notification } from 'antd';
-import { history } from 'umi';
 
 export interface GlobalHeaderRightProps extends Partial<ConnectProps> {
   theme?: SiderTheme;
