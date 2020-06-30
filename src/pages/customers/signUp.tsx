@@ -45,7 +45,8 @@ const SignUp = props => {
       form={form}
       onFinish={onFinish}
       {...layout}
-      // initialValues={{inviterId: inviter }}
+      initialValues={{inviterId: history?.location?.query?.inviter ? history.location.query.inviter
+        : '' }}
     >
       <FormItem
         label="Fulll name"
