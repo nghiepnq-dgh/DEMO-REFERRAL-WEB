@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, notification } from 'antd';
 import { signUp } from '@/services/users';
+import { history } from 'umi';
 import TextArea from 'antd/lib/input/TextArea';
 import {
   UserOutlined,
   MailOutlined,
-  EnvironmentOutlined,
   BarcodeOutlined,
   AppstoreAddOutlined,
   UnlockOutlined,
@@ -15,7 +15,6 @@ const SignUp = props => {
   const [form] = Form.useForm();
   const FormItem = Form.Item;
   const { onCancel } = props;
-
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -42,7 +41,12 @@ const SignUp = props => {
   };
 
   return (
-    <Form form={form} onFinish={onFinish} {...layout}>
+    <Form
+      form={form}
+      onFinish={onFinish}
+      {...layout}
+      // initialValues={{inviterId: inviter }}
+    >
       <FormItem
         label="Fulll name"
         name="name"
@@ -75,7 +79,14 @@ const SignUp = props => {
         <Input prefix={<BarcodeOutlined />} />
       </FormItem>
       <FormItem label="InviterCode" name="inviterId">
-        <Input prefix={<AppstoreAddOutlined />} />
+        <Input
+          defaultValue={
+            history?.location?.query?.inviter
+              ? history.location.query.inviter
+              : ''
+          }
+          prefix={<AppstoreAddOutlined />}
+        />
       </FormItem>
       <FormItem label="Address" name="address">
         <TextArea rows={3} />
