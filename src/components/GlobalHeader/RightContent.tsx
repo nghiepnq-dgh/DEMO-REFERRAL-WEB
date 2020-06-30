@@ -4,11 +4,10 @@ import styles from './index.less';
 import Avatar from './AvatarDropdown';
 
 import SelectLang from '../SelectLang';
-import Button from 'antd/es/button';
 import { ssoCustomer } from '@/services/users';
 export type SiderTheme = 'light' | 'dark';
 import store from 'store';
-import { notification } from 'antd';
+import { notification, Button } from 'antd';
 
 export interface GlobalHeaderRightProps extends Partial<ConnectProps> {
   theme?: SiderTheme;
@@ -40,7 +39,7 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
   };
   return (
     <div className={className}>
-      <Button className={classButtom}>
+      <Button type='primary' className={classButtom}>
         <a href={url} target="_blank">
           Go to referral
         </a>
