@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dispatch, connect, useIntl } from 'umi';
+import { Dispatch, connect, useIntl, useLocation } from 'umi';
 import { ConnectState } from '@/models/connect';
 import classNames from 'classnames';
 import { Form, Input, Button, Col, Row, Checkbox, Modal } from 'antd';
@@ -22,13 +22,19 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = props => {
   const { className, submitting, form, dispatch } = props;
+  const { query } = useLocation();
   const { formatMessage } = useIntl();
   const [ visibleSignUp, setVisibleSignUp ] = useState(false);
   const clsString = classNames(styles.submit);
-
+  const isInviterCode = query ? query.inviter : '';
   const handleFinish = (values: Store) => {
     dispatch({ type: 'user/login', payload: { ...values } });
   };
+
+  useEffect(() => {
+    setVisibleSignUp(true)
+  },[isInviterCode]);
+  
 
   const onCancel = () => {
     setVisibleSignUp(false);
