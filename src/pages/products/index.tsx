@@ -41,7 +41,7 @@ const Product = props => {
                 <Card
                   hoverable
                   style={{ width: 240 }}
-                  cover={<img alt="example" src="mackbook.jpg" />}
+                  cover={<img alt="Product" src="mackbook.jpg" />}
                   >
                 </Card>
               </FormItem>
