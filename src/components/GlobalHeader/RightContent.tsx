@@ -16,7 +16,6 @@ export interface GlobalHeaderRightProps extends Partial<ConnectProps> {
 const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
   const { theme } = props;
   const [url, setUrl] = useState('');
-  console.log("=>: url", url)
   let className = styles.right;
   let classButtom = styles.referral;
   if (theme === 'dark') {

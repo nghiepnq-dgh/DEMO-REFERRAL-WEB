@@ -53,7 +53,7 @@ const Product = props => {
             </Col>
             <Col span={13}>
               <FormItem name='price'>
-                <Input style={{ width: 240, marginRight: 10 }} suffix={<Tag color="green">VND</Tag> } placeholder="Price" name="amount" />
+                <Input style={{ width: 240, marginRight: 10 }} placeholder="Price" suffix={<Tag color="green">VND</Tag> } name="amount" />
               </FormItem>
               <FormItem>
                 <Button type="primary" htmlType='submit'> Payment </Button>
