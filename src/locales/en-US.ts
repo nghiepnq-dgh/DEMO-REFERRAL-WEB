@@ -24,7 +24,7 @@ export default {
   'menu.account': 'Account management',
   'menu.client': 'Client',
   'menu.reward': 'Reward',
-  'menu.product': 'Product',
+  'menu.product': 'Shop',
 
   // customer
   'customer.index': 'Index',

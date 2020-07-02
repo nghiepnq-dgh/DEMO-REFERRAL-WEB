@@ -41,15 +41,19 @@ const Product = props => {
                 <Card
                   hoverable
                   style={{ width: 240 }}
-                  cover={<img alt="example" src="mackbook.jpg" />}
+                  cover={<img alt="Product" src="mackbook.jpg" />}
                   >
-                  <Meta title="Mackbook" />
                 </Card>
               </FormItem>
             </Col>
             <Col span={13}>
+              <FormItem>
+                <Input style={{ width: 240, marginRight: 10 }} placeholder="Product name" />
+              </FormItem>
+            </Col>
+            <Col span={13}>
               <FormItem name='price'>
-                <Input style={{ width: 240, marginRight: 10 }} suffix={<Tag color="green">VND</Tag> } name="amount" />
+                <Input style={{ width: 240, marginRight: 10 }} suffix={<Tag color="green">VND</Tag> } placeholder="Price" name="amount" />
               </FormItem>
               <FormItem>
                 <Button type="primary" htmlType='submit'> Payment </Button>
