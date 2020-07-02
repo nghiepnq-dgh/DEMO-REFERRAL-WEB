@@ -4,11 +4,10 @@ import styles from './index.less';
 import Avatar from './AvatarDropdown';
 
 import SelectLang from '../SelectLang';
-import Button from 'antd/es/button';
 import { ssoCustomer } from '@/services/users';
 export type SiderTheme = 'light' | 'dark';
 import store from 'store';
-import { notification } from 'antd';
+import { notification, Button } from 'antd';
 
 export interface GlobalHeaderRightProps extends Partial<ConnectProps> {
   theme?: SiderTheme;
@@ -17,6 +16,7 @@ export interface GlobalHeaderRightProps extends Partial<ConnectProps> {
 const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
   const { theme } = props;
   const [url, setUrl] = useState('');
+  console.log("=>: url", url)
   let className = styles.right;
   let classButtom = styles.referral;
   if (theme === 'dark') {
@@ -30,8 +30,8 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
   const handleGotoReferral = async () => {
     const { id } = store.get('currentUser');
     const result = await ssoCustomer(id);
-    if (result?.success) {
-      setUrl(result?.url);
+    if (result.success) {
+      setUrl(result.url);
     } else {
       notification.error({
         message: 'Go to Referral Have Error',
@@ -40,7 +40,7 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
   };
   return (
     <div className={className}>
-      <Button className={classButtom}>
+      <Button type='primary' className={classButtom}>
         <a href={url} target="_blank">
           Go to referral
         </a>
