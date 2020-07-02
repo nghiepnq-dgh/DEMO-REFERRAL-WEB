@@ -22,18 +22,26 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = props => {
   const { className, submitting, form, dispatch } = props;
-  const { query } = useLocation();
+  const { search } = useLocation();
   const { formatMessage } = useIntl();
   const [ visibleSignUp, setVisibleSignUp ] = useState(false);
   const clsString = classNames(styles.submit);
-  const isInviterCode = query ? query.inviter : '';
+
   const handleFinish = (values: Store) => {
     dispatch({ type: 'user/login', payload: { ...values } });
   };
 
+  const isSearch = () => {
+    if (search.includes('inviter')){
+      setVisibleSignUp(true);
+    } else {
+      setVisibleSignUp(false);
+    }
+  }
+
   useEffect(() => {
-    setVisibleSignUp(true)
-  },[isInviterCode]);
+    isSearch();
+  },[]);
   
 
   const onCancel = () => {
