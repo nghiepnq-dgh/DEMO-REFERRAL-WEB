@@ -24,7 +24,7 @@ export default {
   'menu.account': 'Quản lý tài khoản',
   'menu.client': 'Khách hàng',
   'menu.reward': 'Phần thưởng',
-  'menu.product': 'Sản phẩm',
+  'menu.product': 'Cửa hàng',
 
   // customer
   'customer.index': 'STT',

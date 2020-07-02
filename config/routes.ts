@@ -36,27 +36,26 @@ export const routes: IRoute[] = [
         name: 'product',
         component: '@/pages/products/index',
         icon: 'ShopOutlined',
-        access:'readProduct'
       },
-      {
-        path: '/customers',
-        exact: false,
-        name: 'customers',
-        icon: 'UserOutlined',
-        access:'readCustomer',
-        routes: [
-          {
-            exact: true,
-            component: '@/pages/customers/index',
-            path: '/customers',
-          },
-          {
-            exact: true,
-            component: '@/pages/customers/[id]',
-            path: '/customers/:id',
-          },
-        ],
-      }
+      // {
+      //   path: '/customers',
+      //   exact: false,
+      //   name: 'customers',
+      //   icon: 'UserOutlined',
+      //   access:'readCustomer',
+      //   routes: [
+      //     {
+      //       exact: true,
+      //       component: '@/pages/customers/index',
+      //       path: '/customers',
+      //     },
+      //     {
+      //       exact: true,
+      //       component: '@/pages/customers/[id]',
+      //       path: '/customers/:id',
+      //     },
+      //   ],
+      // }
     ],
   },
 ];
